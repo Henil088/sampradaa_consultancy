@@ -1,0 +1,364 @@
+/*-----------------------------------*\
+  SERVICE PAGE STYLESHEET
+  Shared styles for all individual service pages
+  Colors align with the Sampradaa logo (emerald green + vivid blue)
+\*-----------------------------------*/
+
+/* ---- HERO BANNER ---- */
+.svc-hero {
+  background: linear-gradient(135deg, #0d3b52 0%, #0a2e40 100%);
+  padding-block: 120px 80px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.svc-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 20% 50%, rgba(46, 204, 158, 0.12) 0%, transparent 60%),
+    radial-gradient(circle at 80% 50%, rgba(46, 159, 212, 0.12) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+.svc-hero-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: var(--svc-color, #2ecc9e);
+  color: #fff;
+  font-size: 2.2rem;
+  margin-inline: auto;
+  margin-block-end: 20px;
+  box-shadow: 0 0 0 12px rgba(255,255,255,0.06);
+  animation: badgePulse 2s ease-out infinite;
+}
+
+@keyframes badgePulse {
+  0%   { box-shadow: 0 0 0 0 rgba(255,255,255,0.15); }
+  100% { box-shadow: 0 0 0 20px rgba(255,255,255,0); }
+}
+
+.svc-breadcrumb {
+  font-size: 1.3rem;
+  color: rgba(255,255,255,0.6);
+  margin-block-end: 14px;
+  font-family: 'Roboto', sans-serif;
+}
+
+.svc-breadcrumb a {
+  color: #2ecc9e;
+  transition: color 0.25s;
+}
+
+.svc-breadcrumb a:hover { color: #2e9fd4; }
+
+.svc-hero-title {
+  font-family: 'Poppins', sans-serif;
+  font-size: clamp(2.8rem, 5vw, 5rem);
+  font-weight: 800;
+  color: #ffffff;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  line-height: 1.1;
+  margin-block-end: 16px;
+}
+
+.svc-hero-subtitle {
+  font-size: clamp(1.4rem, 2vw, 1.8rem);
+  color: rgba(255,255,255,0.75);
+  font-family: 'Roboto', sans-serif;
+  max-width: 55ch;
+  margin-inline: auto;
+}
+
+
+/* ---- MAIN CONTENT WRAPPER ---- */
+.svc-main {
+  padding-block: 0 60px;
+}
+
+
+/* ---- SECTION BLOCKS ---- */
+.svc-section {
+  padding-block: 70px;
+  border-block-end: 1px solid #e0f4ef;
+}
+
+.svc-section:last-child { border-block-end: none; }
+
+.svc-section--alt {
+  background-color: #f2f8f6;
+  margin-inline: -15px;
+  padding-inline: 15px;
+}
+
+@media (min-width: 575px) {
+  .svc-section--alt {
+    margin-inline: calc((100vw - 540px) / -2 - 15px);
+    padding-inline: calc((100vw - 540px) / 2 + 15px);
+  }
+}
+
+@media (min-width: 768px) {
+  .svc-section--alt {
+    margin-inline: calc((100vw - 720px) / -2 - 15px);
+    padding-inline: calc((100vw - 720px) / 2 + 15px);
+  }
+}
+
+@media (min-width: 992px) {
+  .svc-section--alt {
+    margin-inline: calc((100vw - 960px) / -2 - 15px);
+    padding-inline: calc((100vw - 960px) / 2 + 15px);
+  }
+}
+
+@media (min-width: 1200px) {
+  .svc-section--alt {
+    margin-inline: calc((100vw - 1140px) / -2 - 15px);
+    padding-inline: calc((100vw - 1140px) / 2 + 15px);
+  }
+}
+
+.svc-section-title {
+  font-family: 'Poppins', sans-serif;
+  font-size: clamp(2rem, 3vw, 2.8rem);
+  font-weight: 700;
+  color: #0d3b52;
+  text-transform: uppercase;
+  margin-block-end: 30px;
+  position: relative;
+  padding-block-end: 18px;
+}
+
+.svc-section-title::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 60px;
+  height: 4px;
+  border-radius: 2px;
+  background: linear-gradient(90deg, #2ecc9e, #2e9fd4);
+}
+
+.svc-text {
+  font-family: 'Roboto', sans-serif;
+  font-size: 1.6rem;
+  color: #4a5568;
+  line-height: 1.85;
+  max-width: 80ch;
+  margin-block-end: 20px;
+}
+
+
+/* ---- FEATURES GRID ---- */
+.svc-features-grid {
+  display: grid;
+  gap: 24px;
+  grid-template-columns: 1fr;
+  margin-block-start: 10px;
+}
+
+@media (min-width: 575px) {
+  .svc-features-grid { grid-template-columns: 1fr 1fr; }
+}
+
+@media (min-width: 992px) {
+  .svc-features-grid { grid-template-columns: repeat(3, 1fr); }
+}
+
+.svc-feature-card {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 28px 24px;
+  box-shadow: 0 4px 20px rgba(13, 59, 82, 0.07);
+  border: 1px solid #e0f4ef;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.svc-feature-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 32px rgba(13, 59, 82, 0.13);
+  border-color: #2ecc9e;
+}
+
+.svc-feature-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 52px;
+  border-radius: 12px;
+  color: #fff;
+  font-size: 1.6rem;
+  margin-block-end: 18px;
+}
+
+.svc-feature-card h3 {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.7rem;
+  font-weight: 700;
+  color: #0d3b52;
+  margin-block-end: 10px;
+  line-height: 1.3;
+}
+
+.svc-feature-card p {
+  font-family: 'Roboto', sans-serif;
+  font-size: 1.45rem;
+  color: #4a5568;
+  line-height: 1.75;
+}
+
+
+/* ---- BENEFITS LIST ---- */
+.svc-benefits-list {
+  list-style: none;
+  display: grid;
+  gap: 16px;
+  grid-template-columns: 1fr;
+  margin-block-start: 10px;
+}
+
+@media (min-width: 768px) {
+  .svc-benefits-list { grid-template-columns: 1fr 1fr; }
+}
+
+.svc-benefits-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  font-family: 'Roboto', sans-serif;
+  font-size: 1.55rem;
+  color: #4a5568;
+  line-height: 1.6;
+  background: #ffffff;
+  border: 1px solid #e0f4ef;
+  border-radius: 10px;
+  padding: 16px 18px;
+  transition: border-color 0.25s, background 0.25s;
+}
+
+.svc-benefits-list li:hover {
+  border-color: #2ecc9e;
+  background: #f7fdfb;
+}
+
+.svc-benefits-list li ion-icon {
+  color: #2ecc9e;
+  font-size: 2rem;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+
+/* ---- CTA SECTION ---- */
+.svc-cta {
+  background: linear-gradient(135deg, #0d3b52, #0a5075);
+  border-radius: 20px;
+  padding: 60px 40px;
+  text-align: center;
+  margin-block: 60px 20px;
+  position: relative;
+  overflow: hidden;
+}
+
+.svc-cta::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 10% 50%, rgba(46, 204, 158, 0.18) 0%, transparent 55%),
+    radial-gradient(circle at 90% 50%, rgba(46, 159, 212, 0.18) 0%, transparent 55%);
+  pointer-events: none;
+}
+
+.svc-cta h2 {
+  font-family: 'Poppins', sans-serif;
+  font-size: clamp(2rem, 3vw, 2.8rem);
+  font-weight: 800;
+  color: #ffffff;
+  text-transform: uppercase;
+  margin-block-end: 14px;
+  position: relative;
+}
+
+.svc-cta p {
+  font-family: 'Roboto', sans-serif;
+  font-size: 1.6rem;
+  color: rgba(255,255,255,0.78);
+  max-width: 55ch;
+  margin-inline: auto;
+  margin-block-end: 30px;
+  position: relative;
+}
+
+.svc-cta .btn {
+  position: relative;
+  background: linear-gradient(90deg, #2ecc9e, #2e9fd4);
+  color: #ffffff;
+  border: none;
+  border-radius: 50px;
+  padding: 14px 36px;
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.svc-cta .btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(46, 204, 158, 0.4);
+}
+
+
+/* ---- HOMEPAGE SERVICE CARD UPDATES ---- */
+.service-card {
+  cursor: pointer;
+}
+
+.service-card .card-title {
+  text-decoration: none;
+  color: #ffffff;
+}
+
+.service-card .card-title:hover {
+  color: #2ecc9e;
+}
+
+/* "Learn More" arrow link on cards */
+.svc-card-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-block-start: 14px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #2ecc9e;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  transition: gap 0.2s, color 0.2s;
+}
+
+.svc-card-link:hover {
+  gap: 10px;
+  color: #2e9fd4;
+}
+
+.svc-card-link ion-icon {
+  font-size: 1.4rem;
+  transition: transform 0.2s;
+}
+
+.svc-card-link:hover ion-icon {
+  transform: translateX(4px);
+}
