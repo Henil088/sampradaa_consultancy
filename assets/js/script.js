@@ -70,4 +70,19 @@ sr.reveal(`.hero-banner`,{delay: 300, scale: .5,})
 sr.reveal(`.hero-content, .about-content, .container`)
 
 
+/**
+ * Page loader
+ */
+const pageLoader = document.getElementById('loader');
+
+window.addEventListener('load', function () {
+  if (!pageLoader) return;
+  pageLoader.classList.add('hidden');
+  // remove from DOM after transition
+  setTimeout(() => {
+    if (pageLoader && pageLoader.parentNode) pageLoader.parentNode.removeChild(pageLoader);
+  }, 600);
+});
+
+
 
