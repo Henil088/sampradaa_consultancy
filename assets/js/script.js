@@ -85,4 +85,32 @@ window.addEventListener('load', function () {
 });
 
 
+// contact form emailjs
 
+const form = document.getElementById("contact-form");
+
+form.addEventListener("submit", function(e) {
+
+    e.preventDefault();
+
+    emailjs.sendForm(
+        "service_bsq43ji",
+        "template_fb03k4r",
+        this
+    )
+    .then(function() {
+
+        alert("Message sent successfully!");
+
+        form.reset();
+
+    })
+    .catch(function(error) {
+
+        console.log(error);
+
+        alert("Failed to send message.");
+
+    });
+
+});
