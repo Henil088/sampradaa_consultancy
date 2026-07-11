@@ -89,28 +89,42 @@ window.addEventListener('load', function () {
 
 const form = document.getElementById("contact-form");
 
-form.addEventListener("submit", function(e) {
+if (form) {
+  const submitButton = form.querySelector("button[type='submit'], input[type='submit']");
+  let isSubmitting = false;
 
+  form.addEventListener("submit", function (e) {
     e.preventDefault();
 
+    if (isSubmitting) return;
+
+    isSubmitting = true;
+
+    if (submitButton) {
+      submitButton.disabled = true;
+      submitButton.textContent = "Sending...";
+    }
+
     emailjs.sendForm(
-        "service_bsq43ji",
-        "template_fb03k4r",
-        this
+      "service_bsq43ji",
+      "template_fb03k4r",
+      this
     )
-    .then(function() {
-
-        alert("Message sent successfully!");
-
+      .then(function () {
         form.reset();
-
-    })
-    .catch(function(error) {
-
+        alert("Message sent successfully!");
+      })
+      .catch(function (error) {
         console.log(error);
-
         alert("Failed to send message.");
+      })
+      .finally(function () {
+        isSubmitting = false;
 
-    });
-
-});
+        if (submitButton) {
+          submitButton.disabled = false;
+          submitButton.textContent = "Send Message";
+        }
+      });
+  });
+}
